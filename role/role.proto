@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+
+option go_package = "github.com/vijeyash1/proto/role";
+
+message RolePayload {
+    string id = 1;
+    string rolename = 2;
+    string roledisplayname = 3;
+    string roledescription = 4;
+    string serviceid = 5;
+}
+message RoleResponse {
+    string id = 1;
+}
+
+service Role {
+    rpc CreateRole(RolePayload) returns (RoleResponse);
+    rpc GetRole(RolePayload) returns (RolePayload);
+    rpc UpdateRole(RolePayload) returns (RoleResponse);
+    rpc DeleteRole(RolePayload) returns (RoleResponse);
+}

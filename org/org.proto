@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+
+option go_package = "github.com/vijeyash1/proto/org";
+
+message OrgPayload {
+    string id = 1;
+    string name = 2;
+    string description = 3;
+}
+
+message OrgResponse {
+    string id = 1;
+    
+}
+service Org {
+    rpc CreateOrg(OrgPayload) returns (OrgResponse);
+    rpc GetOrg(OrgPayload) returns (OrgPayload);
+    rpc UpdateOrg(OrgPayload) returns (OrgResponse);
+    rpc DeleteOrg(OrgPayload) returns (OrgResponse);
+}
+
